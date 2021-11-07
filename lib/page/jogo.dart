@@ -16,8 +16,6 @@ class _JogoState extends State<Jogo> {
 
   @override
   Widget build(BuildContext context) {
-    print("A tela foi construida");
-
     return Scaffold(
       appBar: AppBar(title: const Text("JokenPô")),
       body: Column(
@@ -62,8 +60,7 @@ class _JogoState extends State<Jogo> {
             children: [
               GestureDetector(
                 onTap: () {
-                  print("Usuário jogou papel");
-                   viewModel.play(JokenponState.papel);
+                  viewModel.play(JokenponState.papel);
                 },
                 child: Image.asset(
                   "images/papel.png",
@@ -73,7 +70,6 @@ class _JogoState extends State<Jogo> {
               ),
               GestureDetector(
                 onTap: () {
-                  print("Usuário jogou pedra");
                   viewModel.play(JokenponState.pedra);
                 },
                 child:
@@ -81,7 +77,6 @@ class _JogoState extends State<Jogo> {
               ),
               GestureDetector(
                 onTap: () {
-                  print("Usuário jogou tesoura");
                   viewModel.play(JokenponState.tesoura);
                 },
                 child: Image.asset("images/tesoura.png",

@@ -25,9 +25,9 @@ abstract class JogoViewModelBase with Store {
   @action
   play(JokenponState playerPick) {
     Random random = Random();
-    var playBot = playPossibilities[random.nextInt(3)];
+    var playBot = playPossibilities[random.nextInt(playPossibilities.length)];
     var result = _getGame(playBot);
-    print("Bot jogou $jogadaBot");
+
     jogadaBot = result.text;
     jogadaPath = result.imagePath;
 
@@ -37,7 +37,8 @@ abstract class JogoViewModelBase with Store {
   GamePlayed _getGame(JokenponState game) {
     switch (game) {
       case JokenponState.tesoura:
-        return GamePlayed(JokenponState.tesoura, "images/tesoura.png", "Tesoura");
+        return GamePlayed(
+            JokenponState.tesoura, "images/tesoura.png", "Tesoura");
       case JokenponState.papel:
         return GamePlayed(JokenponState.papel, "images/papel.png", "Papel");
       case JokenponState.pedra:
